@@ -1,6 +1,9 @@
 package com.revature.models;
 
-public class Nutrion {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Nutrition {
 
 	private double carb;
 	private double prot;
@@ -8,11 +11,11 @@ public class Nutrion {
 	private int calo;
 	private double suga;
 
-	public Nutrion() {
+	public Nutrition() {
 		super();
 	}
 
-	public Nutrion(double carb, double prot, double phat, int calo, double suga) {
+	public Nutrition(double carb, double prot, double phat, int calo, double suga) {
 		super();
 		this.carb = carb;
 		this.prot = prot;
@@ -92,7 +95,7 @@ public class Nutrion {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Nutrion other = (Nutrion) obj;
+		Nutrition other = (Nutrition) obj;
 		if (calo != other.calo)
 			return false;
 		if (Double.doubleToLongBits(carb) != Double.doubleToLongBits(other.carb))

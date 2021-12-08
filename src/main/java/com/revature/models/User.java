@@ -1,5 +1,8 @@
 package com.revature.models;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
 
 	private int userId;

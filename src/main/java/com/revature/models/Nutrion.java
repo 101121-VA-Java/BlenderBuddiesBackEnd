@@ -1,5 +1,7 @@
 package com.revature.models;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Nutrion {
 
 	private double carb;

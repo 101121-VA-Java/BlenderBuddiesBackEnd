@@ -1,5 +1,7 @@
 package com.revature.models;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Recipe {
 
 	private int nGredId;

@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,4 +82,8 @@ public class UserController {
 		us.createUser(user);
 		return new ResponseEntity<>(user.getFirstName() + " was created.", HttpStatus.CREATED);
 	}
+=======
+public class UserController {
+
+>>>>>>> main
 }

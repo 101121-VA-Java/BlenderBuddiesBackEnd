@@ -1,9 +1,15 @@
 package com.revature.models;
+import org.springframework.stereotype.Component;
 
+<<<<<<< HEAD:src/main/java/com/revature/models/Nutrition.java
 import org.springframework.stereotype.Component;
 
 @Component
 public class Nutrition {
+=======
+@Component
+public class Nutrion {
+>>>>>>> main:src/main/java/com/revature/models/Nutrion.java
 
 	private double carb;
 	private double prot;

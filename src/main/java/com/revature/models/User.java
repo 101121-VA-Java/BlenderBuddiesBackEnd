@@ -1,7 +1,11 @@
 package com.revature.models;
-
 import org.springframework.stereotype.Component;
 
+<<<<<<< HEAD
+import org.springframework.stereotype.Component;
+
+=======
+>>>>>>> main
 @Component
 public class User {
 

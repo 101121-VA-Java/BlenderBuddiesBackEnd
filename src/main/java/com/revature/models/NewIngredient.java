@@ -1,16 +1,19 @@
 package com.revature.models;
 
-public class NewIngrediant {
+import org.springframework.stereotype.Component;
+
+@Component
+public class NewIngredient {
 
 	private int nGredId;
 	private String name;
 	private int nutrions;
 
-	public NewIngrediant() {
+	public NewIngredient() {
 		super();
 	}
 
-	public NewIngrediant(int nGredId, String name, int nutrions) {
+	public NewIngredient(int nGredId, String name, int nutrions) {
 		super();
 		this.nGredId = nGredId;
 		this.name = name;
@@ -43,7 +46,7 @@ public class NewIngrediant {
 
 	@Override
 	public String toString() {
-		return "NewIngrediant [nGredId=" + nGredId + ", name=" + name + ", nutrions=" + nutrions + "]";
+		return "NewIngredient [nGredId=" + nGredId + ", name=" + name + ", nutrions=" + nutrions + "]";
 	}
 
 	@Override
@@ -64,7 +67,7 @@ public class NewIngrediant {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		NewIngrediant other = (NewIngrediant) obj;
+		NewIngredient other = (NewIngredient) obj;
 		if (nGredId != other.nGredId)
 			return false;
 		if (name == null) {

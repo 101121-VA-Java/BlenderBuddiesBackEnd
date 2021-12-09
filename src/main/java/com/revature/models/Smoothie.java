@@ -1,23 +1,35 @@
 package com.revature.models;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+@Entity
+@Table(name="smoothies")
 public class Smoothie {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int smoothId;
 	private String decrip;
 	private String name;
-	
+	@Column(nullable=false)
+	private String type;
+
 	public Smoothie() {
 		super();
-		
+
 	}
 
-	public Smoothie(int smoothId, String decrip, String name) {
+	public Smoothie(int smoothId, String decrip, String name, String type) {
 		super();
 		this.smoothId = smoothId;
 		this.decrip = decrip;
 		this.name = name;
+		this.type = type;
 	}
 
 	public int getSmoothId() {
@@ -44,9 +56,12 @@ public class Smoothie {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "Smoothie [smoothId=" + smoothId + ", decrip=" + decrip + ", name=" + name + "]";
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
@@ -56,6 +71,7 @@ public class Smoothie {
 		result = prime * result + ((decrip == null) ? 0 : decrip.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + smoothId;
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -80,7 +96,17 @@ public class Smoothie {
 			return false;
 		if (smoothId != other.smoothId)
 			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Smoothie [smoothId=" + smoothId + ", decrip=" + decrip + ", name=" + name + ", type=" + type + "]";
 	}
 
 }

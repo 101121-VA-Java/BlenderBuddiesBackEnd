@@ -1,12 +1,16 @@
 package com.revature.models;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Component
+//@Component
+//@Entity
+//@Table(name="recipes")
 public class Recipe {
-
 	private int nGredId;
 	private int fruitId;
+//	@Column(nullable=false)
 	private int smoothId;
 
 	public Recipe() {

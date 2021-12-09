@@ -1,8 +1,10 @@
 package com.revature.models;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Component
+//@Entity
+//@Table(name="new_ingredient")
 public class NewIngredient {
 
 	private int nGredId;

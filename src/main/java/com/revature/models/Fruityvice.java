@@ -4,12 +4,17 @@ public class Fruityvice {
 
 	private int id;
 	private String name;
-//	private List<nutritions> nutritions;
-////	private int nutrions1;
-////	private Nutrition nutrions; 
+	private Nutrition nutritions;
 
 	public Fruityvice() {
 		super();
+	}
+
+	public Fruityvice(int id, String name, Nutrition nutritions) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nutritions = nutritions;
 	}
 
 	public int getId() {
@@ -28,9 +33,12 @@ public class Fruityvice {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "Fruityvice [id=" + id + ", name=" + name + "]";
+	public Nutrition getNutritions() {
+		return nutritions;
+	}
+
+	public void setNutritions(Nutrition nutritions) {
+		this.nutritions = nutritions;
 	}
 
 	@Override
@@ -39,6 +47,7 @@ public class Fruityvice {
 		int result = 1;
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((nutritions == null) ? 0 : nutritions.hashCode());
 		return result;
 	}
 
@@ -58,7 +67,17 @@ public class Fruityvice {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (nutritions == null) {
+			if (other.nutritions != null)
+				return false;
+		} else if (!nutritions.equals(other.nutritions))
+			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Fruityvice [id=" + id + ", name=" + name + ", nutritions=" + nutritions + "]";
 	}
 
 }

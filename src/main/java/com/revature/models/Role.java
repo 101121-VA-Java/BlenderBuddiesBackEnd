@@ -1,11 +1,20 @@
 package com.revature.models;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+//@Component
+@Entity
+@Table(name="roles")
 public class Role {
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int roleId;
+	@Column(nullable=false)
 	private String role;
 
 	public Role() {

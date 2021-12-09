@@ -1,27 +1,57 @@
 package com.revature.models;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Table(name="nutritions")
 public class Nutrition {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int nutId;
+	@Column(nullable=false)
+	@JsonProperty("carbohydrates")
 	private double carb;
+	@Column(nullable=false)
+	@JsonProperty("protein")
 	private double prot;
+	@Column(nullable=false)
+	@JsonProperty("fat")
 	private double phat;
+	@Column(nullable=false)
+	@JsonProperty("calories")
 	private int calo;
+	@Column(nullable=false)
+	@JsonProperty("sugar")
 	private double suga;
 
 	public Nutrition() {
 		super();
 	}
 
-	public Nutrition(double carb, double prot, double phat, int calo, double suga) {
+	public Nutrition(int nutId, double carb, double prot, double phat, int calo, double suga) {
 		super();
+		this.nutId = nutId;
 		this.carb = carb;
 		this.prot = prot;
 		this.phat = phat;
 		this.calo = calo;
 		this.suga = suga;
+	}
+
+	public int getNutId() {
+		return nutId;
+	}
+
+	public void setNutId(int nutId) {
+		this.nutId = nutId;
 	}
 
 	public double getCarb() {
@@ -65,12 +95,6 @@ public class Nutrition {
 	}
 
 	@Override
-	public String toString() {
-		return "Nutrion [carb=" + carb + ", prot=" + prot + ", phat=" + phat + ", calo=" + calo + ", suga=" + suga
-				+ "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -78,6 +102,7 @@ public class Nutrition {
 		long temp;
 		temp = Double.doubleToLongBits(carb);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + nutId;
 		temp = Double.doubleToLongBits(phat);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		temp = Double.doubleToLongBits(prot);
@@ -100,6 +125,8 @@ public class Nutrition {
 			return false;
 		if (Double.doubleToLongBits(carb) != Double.doubleToLongBits(other.carb))
 			return false;
+		if (nutId != other.nutId)
+			return false;
 		if (Double.doubleToLongBits(phat) != Double.doubleToLongBits(other.phat))
 			return false;
 		if (Double.doubleToLongBits(prot) != Double.doubleToLongBits(other.prot))
@@ -108,5 +135,13 @@ public class Nutrition {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Nutrition [nutId=" + nutId + ", carb=" + carb + ", prot=" + prot + ", phat=" + phat + ", calo=" + calo
+				+ ", suga=" + suga + "]";
+	}
+
+	
 
 }

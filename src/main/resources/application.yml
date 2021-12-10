@@ -2,27 +2,35 @@
 #server:
 #  port: 8080
 
+# prevents empty bean retrieval from causing issues
 spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  profiles:
+    active:
+    - "@profileActive@"
+
+# Actuator setting to display more metrics about the application
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+#Don't worry about this stuff To be deleted later
+#spring:
 #  datasource:
-#    url: jdbc:postgresql://database-1.caldtkttxzjv.us-east-2.rds.amazonaws.com:5432/postgres #can hardcode credentials, but better practice to use environment variables to not expose creds
-#    username: postgres
-#    password: elon2019
-#    driver-className: org.postgresql.Driver
+#    url: ${DB_URL} #can hardcode credentials, but better practice to use environment variables to not expose creds
+#    username: ${DB_USER}
+#    password: ${DB_PASS}
 #  jpa:
 #    show-sql: true
 #    database-platform: org.hibernate.dialect.PostgreSQLDialect
 #    hibernate:
 #      ddl-auto: create
-
-  datasource:
-    url: ${DB_URL} #can hardcode credentials, but better practice to use environment variables to not expose creds
-    username: ${DB_USER}
-    password: ${DB_PASS}
-  jpa:
-    show-sql: true
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:
-      ddl-auto: create
 
 #  datasource: 
 #    url: jdbc:h2:mem:mydb
@@ -36,3 +44,15 @@ spring:
 #  h2:
 #    console:
 #      enabled: true
+
+
+#  datasource:
+#    url: jdbc:postgresql://database-1.caldtkttxzjv.us-east-2.rds.amazonaws.com:5432/postgres #can hardcode credentials, but better practice to use environment variables to not expose creds
+#    username: postgres
+#    password: elon2019
+#    driver-className: org.postgresql.Driver
+#  jpa:
+#    show-sql: true
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: create

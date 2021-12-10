@@ -14,11 +14,18 @@ public class GlobalExceptionHandler {
 		// do something, ie: log
 	}
 	
-	@ResponseStatus(value=HttpStatus.BAD_REQUEST, reason="bad")
+	@ResponseStatus(value=HttpStatus.UNAUTHORIZED, reason="Invalid user information")
+	@ExceptionHandler(LoginException.class)
+	public void handleLoginException() {
+		
+	}
+	
+	@ResponseStatus(value=HttpStatus.BAD_REQUEST, reason="Bad Request")
 	@ExceptionHandler(Exception.class)
 	public void handleException() {
 		// do something else
 	}
+	
 	
 	
 }

@@ -1,108 +1,71 @@
-package com.revature.models;
+package com.revature.dtos;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.revature.models.RoleEnum;
+import com.revature.models.User;
 
-import org.hibernate.validator.constraints.Length;
+public class SimpleUser {
 
-
-//@Component
-@Entity
-@Table(name="users")
-public class User {
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
-	@Length(min=3)
-	@Column(nullable=false)
 	private String username;
-	@Length(min=3)
-	@Column(nullable=false)
-	private String password;
-	@Length(min=3)
-	@Column(nullable=false)
 	private String firstName;
-	@Length(min=3)
-	@Column(nullable=false)
 	private String lastName;
-	@Column(nullable=false)
 	private String email;
-	@Enumerated(EnumType.STRING)
 	private RoleEnum role;
 	
-	public User() {
+	public SimpleUser() {
 		super();
 	}
-
+	
+	public SimpleUser(User u) {
+		userId = u.getUserId();
+		username = u.getUsername();
+		firstName = u.getFirstName();
+		lastName = u.getLastName();
+		email = u.getEmail();
+		role = u.getRole();
+		
+	}
 	public int getUserId() {
 		return userId;
 	}
-
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public RoleEnum getRole() {
 		return role;
 	}
-
 	public void setRole(RoleEnum role) {
 		this.role = role;
 	}
-
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", firstName="
-				+ firstName + ", lastName=" + lastName + ", email=" + email + ", role=" + role + "]";
+		return "SimpleUser [userId=" + userId + ", username=" + username + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", role=" + role + "]";
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,13 +73,11 @@ public class User {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((role == null) ? 0 : role.hashCode());
 		result = prime * result + userId;
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -125,7 +86,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		SimpleUser other = (SimpleUser) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -141,11 +102,6 @@ public class User {
 				return false;
 		} else if (!lastName.equals(other.lastName))
 			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
 		if (role != other.role)
 			return false;
 		if (userId != other.userId)
@@ -157,5 +113,5 @@ public class User {
 			return false;
 		return true;
 	}
-	
+
 }

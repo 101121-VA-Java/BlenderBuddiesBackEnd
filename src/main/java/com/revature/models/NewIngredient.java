@@ -1,25 +1,29 @@
 package com.revature.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-//@Entity
-//@Table(name="new_ingredient")
-public class NewIngredient {
+import org.hibernate.validator.constraints.Length;
 
+@Entity
+@Table(name="new_ingredient")
+public class NewIngredient {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int nGredId;
+	@Length(min=3)
+	@Column(nullable=false)
 	private String name;
-	private int nutrions;
+	@OneToOne
+	private Nutrition nutrions;
 
 	public NewIngredient() {
 		super();
-	}
-
-	public NewIngredient(int nGredId, String name, int nutrions) {
-		super();
-		this.nGredId = nGredId;
-		this.name = name;
-		this.nutrions = nutrions;
 	}
 
 	public int getnGredId() {
@@ -38,11 +42,11 @@ public class NewIngredient {
 		this.name = name;
 	}
 
-	public int getNutrions() {
+	public Nutrition getNutrions() {
 		return nutrions;
 	}
 
-	public void setNutrions(int nutrions) {
+	public void setNutrions(Nutrition nutrions) {
 		this.nutrions = nutrions;
 	}
 
@@ -57,7 +61,7 @@ public class NewIngredient {
 		int result = 1;
 		result = prime * result + nGredId;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + nutrions;
+		result = prime * result + ((nutrions == null) ? 0 : nutrions.hashCode());
 		return result;
 	}
 
@@ -77,9 +81,13 @@ public class NewIngredient {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (nutrions != other.nutrions)
+		if (nutrions == null) {
+			if (other.nutrions != null)
+				return false;
+		} else if (!nutrions.equals(other.nutrions))
 			return false;
 		return true;
 	}
 
+	
 }

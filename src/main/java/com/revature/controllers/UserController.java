@@ -64,13 +64,7 @@ public class UserController {
 			return us.getUserByRole(role);
 		}
 		return us.getAllUsers();
-	}
-	
-//	@GetMapping("/{id}")
-//	@ResponseBody
-//	public User getUserById(@PathVariable("id")int id) {
-//		return us.getUserById(id);
-//	}
+	}	
 	
 	@GetMapping("/{id}")
 //	@ResponseBody
@@ -81,6 +75,6 @@ public class UserController {
 	@PostMapping // @RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<String> createUser(@Valid @RequestBody User user){
 		us.createUser(user);
-		return new ResponseEntity<>(user.getFirstName() + " was created.", HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 }

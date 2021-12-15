@@ -4,8 +4,8 @@ pipeline {
     environment {
         PORT_HOST="8081"
         PORT_CONT="8080"
-        IMAGE_TAG="datarest-demo"
-        CONTAINER_NAME="datarest-app"
+        IMAGE_TAG="BlenderBuddies-demo"
+        CONTAINER_NAME="BlenderBuddies-app"
         DB_URL=credentials('DB_URL')
         DB_USER=credentials('DB_USER')
         DB_PASS=credentials('DB_PASS')
@@ -17,7 +17,7 @@ pipeline {
             script {
                 properties([pipelineTriggers([githubPush()])])
             }
-            git branch: 'main', url: 'https://github.com/101121-VA-Java/datarest-pipeline.git'
+            git branch: 'main', url: 'https://github.com/101121-VA-Java/BlenderBuddiesBackEnd.git'
 
           }
       }

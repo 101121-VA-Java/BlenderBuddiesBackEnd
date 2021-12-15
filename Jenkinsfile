@@ -4,8 +4,8 @@ pipeline {
     environment {
         PORT_HOST="8081"
         PORT_CONT="8080"
-        IMAGE_TAG="BlenderBuddies-demo"
-        CONTAINER_NAME="BlenderBuddies-app"
+        IMAGE_TAG="blender_buddies-demo"
+        CONTAINER_NAME="blender_buddies-app"
         DB_URL=credentials('DB_URL')
         DB_USER=credentials('DB_USER')
         DB_PASS=credentials('DB_PASS')

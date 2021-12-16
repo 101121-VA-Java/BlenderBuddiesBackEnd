@@ -9,6 +9,6 @@ import com.revature.models.Ingredient;
 
 @Repository
 public interface IngredientRepository extends JpaRepository<Ingredient, Integer>{
-	List<Ingredient> findIngredientByName(String name);
+	List<Ingredient> findIngredientByNameIgnoreCase(String name);
 
 }

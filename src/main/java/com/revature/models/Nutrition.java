@@ -35,7 +35,7 @@ public class Nutrition {
 	public Nutrition() {
 		super();
 	}
-
+ 
 	public Nutrition(int nutId, double carb, double prot, double phat, int calo, double suga) {
 		super();
 		this.nutId = nutId;
@@ -44,6 +44,11 @@ public class Nutrition {
 		this.phat = phat;
 		this.calo = calo;
 		this.suga = suga;
+	}
+
+	public Nutrition(int nutId) {
+		super();
+		this.nutId = nutId;
 	}
 
 	public int getNutId() {

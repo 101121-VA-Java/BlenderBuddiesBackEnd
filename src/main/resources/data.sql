@@ -4,4 +4,4 @@ insert into users (username, password, first_Name, last_Name, email, role) value
 insert into users (username, password, first_Name, last_Name, email, role) values ('lschottli3', 'UfSvoB6qWe', 'Lorrayne', 'Schottli', 'lschottli3@scribd.com', 'USER');
 insert into users (username, password, first_Name, last_Name, email, role) values ('cweatherburn4', 'qpoYYzhG91oL', 'Calla', 'Weatherburn', 'cweatherburn4@acquirethisname.com', 'USER');
 
-insert into nutritions (calo, carb, phat, prot, suga) values (95, 25.0, 0.3, 0.5, 19);
+--insert into nutritions (calo, carb, phat, prot, suga) values (95, 25.0, 0.3, 0.5, 19);

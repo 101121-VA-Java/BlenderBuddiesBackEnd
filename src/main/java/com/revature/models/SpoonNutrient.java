@@ -2,7 +2,7 @@ package com.revature.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Nutrient {
+public class SpoonNutrient {
 	@JsonProperty("name")
 	private String name;
 	@JsonProperty("amount")
@@ -10,7 +10,7 @@ public class Nutrient {
 	@JsonProperty("unit")
 	private String unit;
 	
-	public Nutrient() {
+	public SpoonNutrient() {
 		super();
 	}
 
@@ -63,7 +63,7 @@ public class Nutrient {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Nutrient other = (Nutrient) obj;
+		SpoonNutrient other = (SpoonNutrient) obj;
 		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
 		if (name == null) {

@@ -10,10 +10,9 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
-//DTO?
 @Entity
-@Table(name="Fruits")
-public class Fruityvice {
+@Table(name="ingredients")
+public class Ingredient {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -23,11 +22,11 @@ public class Fruityvice {
 	@OneToOne
 	private Nutrition nutritions;
 
-	public Fruityvice() {
+	public Ingredient() {
 		super();
 	}
 
-	public Fruityvice(int id, String name, Nutrition nutritions) {
+	public Ingredient(int id, String name, Nutrition nutritions) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -76,7 +75,7 @@ public class Fruityvice {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Fruityvice other = (Fruityvice) obj;
+		Ingredient other = (Ingredient) obj;
 		if (id != other.id)
 			return false;
 		if (name == null) {

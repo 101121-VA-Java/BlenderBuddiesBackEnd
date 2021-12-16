@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-import com.revature.models.Fruityvice;
+import com.revature.models.Ingredient;
 import com.revature.models.Spoonacular;
 
 import springfox.documentation.builders.PathSelectors;
@@ -21,7 +21,7 @@ public class BlenderBuddiesBackEndApplication {
 		String url = "https://www.fruityvice.com/api/fruit/";
 		RestTemplate rt = new RestTemplate();
 		
-		Fruityvice f = rt.getForObject(url + "6", Fruityvice.class);
+		Ingredient f = rt.getForObject(url + "6", Ingredient.class);
 		
 		System.out.println(f);
 		

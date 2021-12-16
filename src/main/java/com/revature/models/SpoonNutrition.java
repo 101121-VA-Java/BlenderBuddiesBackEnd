@@ -6,17 +6,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SpoonNutrition {
-	private List<Nutrient> nutrients;
+	private List<SpoonNutrient> nutrients;
 
 	public SpoonNutrition() {
 		super();
 	}
 
-	public List<Nutrient> getNutrients() {
+	public List<SpoonNutrient> getNutrients() {
 		return nutrients;
 	}
 
-	public void setNutrients(List<Nutrient> nutrients) {
+	public void setNutrients(List<SpoonNutrient> nutrients) {
 		this.nutrients = nutrients;
 	}
 

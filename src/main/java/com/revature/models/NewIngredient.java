@@ -20,7 +20,7 @@ public class NewIngredient {
 	@Column(nullable=false)
 	private String name;
 	@OneToOne
-	private Nutrition nutrions;
+	private Nutrition nutritions;
 
 	public NewIngredient() {
 		super();
@@ -43,16 +43,16 @@ public class NewIngredient {
 	}
 
 	public Nutrition getNutrions() {
-		return nutrions;
+		return nutritions;
 	}
 
 	public void setNutrions(Nutrition nutrions) {
-		this.nutrions = nutrions;
+		this.nutritions = nutrions;
 	}
 
 	@Override
 	public String toString() {
-		return "NewIngredient [nGredId=" + nGredId + ", name=" + name + ", nutrions=" + nutrions + "]";
+		return "NewIngredient [nGredId=" + nGredId + ", name=" + name + ", nutrions=" + nutritions + "]";
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class NewIngredient {
 		int result = 1;
 		result = prime * result + nGredId;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((nutrions == null) ? 0 : nutrions.hashCode());
+		result = prime * result + ((nutritions == null) ? 0 : nutritions.hashCode());
 		return result;
 	}
 
@@ -81,10 +81,10 @@ public class NewIngredient {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (nutrions == null) {
-			if (other.nutrions != null)
+		if (nutritions == null) {
+			if (other.nutritions != null)
 				return false;
-		} else if (!nutrions.equals(other.nutrions))
+		} else if (!nutritions.equals(other.nutritions))
 			return false;
 		return true;
 	}

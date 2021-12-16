@@ -29,7 +29,7 @@ public class IngredientService {
 	}
 	
 	public List<Ingredient> getIngredientByName(String name){
-		return ir.findIngredientByName(name);
+		return ir.findIngredientByNameIgnoreCase(name);
 	}
 
 }

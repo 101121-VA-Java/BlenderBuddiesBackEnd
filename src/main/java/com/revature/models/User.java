@@ -21,7 +21,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
 	@Length(min=3)
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String username;
 	@Length(min=3)
 	@Column(nullable=false)
@@ -32,7 +32,7 @@ public class User {
 	@Length(min=3)
 	@Column(nullable=false)
 	private String lastName;
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String email;
 	@Enumerated(EnumType.STRING)
 	private RoleEnum role;

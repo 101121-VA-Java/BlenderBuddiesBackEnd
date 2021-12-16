@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,21 +18,15 @@ public class Ingredient {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	@Length(min=3)
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String name;
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	private Nutrition nutritions;
 
 	public Ingredient() {
 		super();
 	}
 
-	public Ingredient(int id, String name, Nutrition nutritions) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.nutritions = nutritions;
-	}
 
 	public int getId() {
 		return id;

@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.revature.daos.IngredientRepository;
 import com.revature.models.Ingredient;
 
+
+
 @Service
 public class IngredientService {
 	private IngredientRepository ir;
@@ -31,5 +33,7 @@ public class IngredientService {
 	public List<Ingredient> getIngredientByName(String name){
 		return ir.findIngredientByNameIgnoreCase(name);
 	}
+	
+	//Adjust Quantity
 
 }

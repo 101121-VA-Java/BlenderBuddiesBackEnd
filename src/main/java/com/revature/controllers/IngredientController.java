@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Ingredient;
+import com.revature.services.FruitService;
 import com.revature.services.IngredientService;
 
 @RestController
@@ -23,18 +25,31 @@ import com.revature.services.IngredientService;
 @CrossOrigin("*")
 public class IngredientController {
 	private IngredientService is;
+	private FruitService fs;
 	
 	@Autowired
-	public IngredientController(IngredientService is) {
+	public IngredientController(IngredientService is, FruitService fs) {
 		this.is = is;
+		this.fs = fs;
 	}
 	
 	@GetMapping
 	public List<Ingredient> getAllIngredients(@RequestParam(name="name", required = false)String name){
 		if(name !=null) {
-			return is.getIngredientByName(name);
+			List<Ingredient> test = null;
+			test = is.getIngredientByName(name);
+			if (test.isEmpty()) {
+				test = fs.getFruitByName(name);
+			}
+			return test;
 		}
-		return is.getAllIngredients();
+		List<Ingredient> one = is.getAllIngredients();
+		List<Ingredient> two = fs.getAllFruits();
+		List<Ingredient> three = new ArrayList<>();
+		three.addAll(one);
+		three.addAll(two);
+		
+		return three;
 	}
 	
 	@PostMapping

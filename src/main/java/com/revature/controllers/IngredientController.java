@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,11 +36,12 @@ public class IngredientController {
 	
 	@GetMapping
 	public List<Ingredient> getAllIngredients(@RequestParam(name="name", required = false)String name){
-		if(name !=null) {
+		if(name != null) {
 			List<Ingredient> test = null;
 			test = is.getIngredientByName(name);
 			if (test.isEmpty()) {
 				test = fs.getFruitByName(name);
+				//createIngredient(test.get(0));
 			}
 			return test;
 		}
@@ -50,6 +52,11 @@ public class IngredientController {
 		three.addAll(two);
 		
 		return three;
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Ingredient> getIngredientById(@PathVariable("id")int id){
+		return new ResponseEntity<>(is.getIngredientById(id), HttpStatus.OK);
 	}
 	
 	@PostMapping

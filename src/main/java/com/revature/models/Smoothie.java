@@ -9,11 +9,14 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -25,14 +28,15 @@ public class Smoothie {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int smoothId;
-	private String decrip;
-	private String url;
 	@Column(nullable=false)
 	private String name;
+	private String descrip;
+	private String url;
 	@Enumerated(EnumType.STRING)
 	private RoleEnum type;
 	@OneToOne
 	private User user;
+//	@JsonManagedReference
 	@ManyToMany
 	@JoinTable(
 			name = "ingredients_used",

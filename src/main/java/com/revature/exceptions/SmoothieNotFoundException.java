@@ -1,6 +1,6 @@
 package com.revature.exceptions;
 
-public class IngredientNotFoundException extends RuntimeException{
+public class SmoothieNotFoundException extends RuntimeException{
 
 	/**
 	 * 

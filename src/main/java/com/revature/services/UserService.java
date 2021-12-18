@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.daos.UserRepository;
 import com.revature.exceptions.UserNotFoundException;
-import com.revature.models.Role;
+import com.revature.models.RoleEnum;
 import com.revature.models.User;
 
 @Service
@@ -36,7 +36,7 @@ public class UserService {
 		ur.save(u);
 	}
 
-	public List<User> getUserByRole(Role role) {
+	public List<User> getUserByRole(RoleEnum role) {
 		return ur.findUsersByRole(role);
 
 	}

@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.models.Role;
+
+import com.revature.models.RoleEnum;
 import com.revature.models.User;
 import com.revature.services.UserService;
 
@@ -35,30 +36,9 @@ public class UserController {
 		this.us = us;
 	}
 	
-	/*
-	 *	/users/{x}
-	 *	/users/{y}
-	 *	
-	 *	actual value: /users/25
-			- ???
-	 * 
-	 * getAllUsers
-	 * 		- method: get
-	 * 		- url: /users
-	 * getUsersByRole
-	 * 		- method: get
-	 * 		- url: /users?role=[value]
-	 * getUserById
-	 * 		- method: get
-	 * 		- url: /users/{id}
-	 * addUser
-	 * 		- method: post
-	 * 		- url: /users
-	 */
-	
 	@RequestMapping(method=RequestMethod.GET)
 //	@ResponseBody
-	public List<User> getAllUsers(@RequestParam(name="role", required = false)Role role){
+	public List<User> getAllUsers(@RequestParam(name="role", required = false)RoleEnum role){
 		// if a query param of name "role" is passed in, returns users of this role
 		if(role != null) {
 			return us.getUserByRole(role);

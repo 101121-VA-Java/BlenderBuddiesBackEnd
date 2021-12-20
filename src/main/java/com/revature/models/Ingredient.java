@@ -14,6 +14,9 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 
 @Entity
@@ -26,10 +29,24 @@ public class Ingredient {
 	@Length(min=3)
 	@Column(nullable=false, unique=true)
 	private String name;
+	
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Nutrition nutritions;
+	
+//	@JsonBackReference
 	@ManyToMany(mappedBy = "recipe")
 	Set<Smoothie> ingredient;
 	
+	public Ingredient() {
+		super();
+	}
+	
+	public Ingredient(int id) {
+		super();
+		this.id = id;
+	}
 
+	
+	
+	
 }

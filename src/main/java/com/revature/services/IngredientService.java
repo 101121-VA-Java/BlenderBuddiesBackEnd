@@ -33,7 +33,8 @@ public class IngredientService {
 	public List<Ingredient> getIngredientByName(String name){
 		return ir.findIngredientByNameIgnoreCase(name);
 	}
-	
-	//Adjust Quantity
 
+	public Ingredient getIngredientById(int id){
+		return ir.getById(id);
+	}
 }

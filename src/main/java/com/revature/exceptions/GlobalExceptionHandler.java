@@ -14,12 +14,12 @@ public class GlobalExceptionHandler {
 		// do something, ie: log
 	}
 	
-	@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="The fruit was not found")
-	@ExceptionHandler(IngredientNotFoundException.class)
+	@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="The smoothie was not found")
+	@ExceptionHandler(SmoothieNotFoundException.class)
 	public void handleIngredientNotFoundException() {
 		// do something, ie: log
 	}
-	
+
 	@ResponseStatus(value=HttpStatus.UNAUTHORIZED, reason="Invalid user information")
 	@ExceptionHandler(LoginException.class)
 	public void handleLoginException() {

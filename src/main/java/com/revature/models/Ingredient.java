@@ -1,6 +1,6 @@
 package com.revature.models;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,8 +14,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -32,10 +31,10 @@ public class Ingredient {
 	
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Nutrition nutritions;
-	
-//	@JsonBackReference
+
 	@ManyToMany(mappedBy = "recipe")
-	Set<Smoothie> ingredient;
+	@JsonIgnoreProperties("recipe")
+	List<Smoothie> ingredient;
 	
 	public Ingredient() {
 		super();

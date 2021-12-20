@@ -19,15 +19,15 @@ public class BlenderBuddiesBackEndApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlenderBuddiesBackEndApplication.class, args);
-		String url = "https://www.fruityvice.com/api/fruit/";
-		RestTemplate rt = new RestTemplate();
-		Ingredient f = null;
-		try {
-		f = rt.getForObject(url + "milk", Ingredient.class);
-		}catch(Exception e) {
-			f = rt.getForObject(url + "kiwi", Ingredient.class);
-		}
-		System.out.println(f);
+//		String url = "https://www.fruityvice.com/api/fruit/";
+//		RestTemplate rt = new RestTemplate();
+//		Ingredient f = null;
+//		try {
+//		f = rt.getForObject(url + "milk", Ingredient.class);
+//		}catch(Exception e) {
+//			f = rt.getForObject(url + "kiwi", Ingredient.class);
+//		}
+//		System.out.println(f);
 		
 		
 		

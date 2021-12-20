@@ -1,6 +1,6 @@
 package com.revature.models;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -36,12 +35,12 @@ public class Smoothie {
 	private RoleEnum type;
 	@OneToOne
 	private User user;
-//	@JsonManagedReference
 	@ManyToMany
+	@JsonIgnoreProperties("ingredient")
 	@JoinTable(
-			name = "ingredients_used",
+			name = "recipes",
 			joinColumns = @JoinColumn(name = "smoothie_id"),
 			inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
-	Set<Ingredient> recipe;
+	List<Ingredient> recipe;
 			
 }

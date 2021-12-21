@@ -59,8 +59,12 @@ public class UserController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<String> updateUser(@PathVariable("id")int id, @Valid @RequestBody User user){
+	public ResponseEntity<String> updateUser(@PathVariable("id")int id, @Valid @RequestBody User user, @RequestParam(name="role", required = false)RoleEnum role){
 		us.updateUser(id, user);
+		if(role != null) {
+			us.updateRole(id);
+		}
 		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
+
 }

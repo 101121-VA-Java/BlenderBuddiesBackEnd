@@ -51,4 +51,15 @@ public class UserService {
 		temp.setPassword(u.getPassword());
 		ur.save(temp);
 	}
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void updateRole(int id) {
+		User temp = ur.getById(id);
+		if (temp.getRole().equals(RoleEnum.USER)) {
+			temp.setRole(RoleEnum.ADMIN);
+		}else {
+			temp.setRole(RoleEnum.USER);
+		}
+		ur.save(temp);
+	}
 }

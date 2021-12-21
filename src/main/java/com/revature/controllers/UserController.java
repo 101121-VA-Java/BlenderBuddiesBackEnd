@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import com.revature.models.RoleEnum;
 import com.revature.models.User;
@@ -56,5 +56,11 @@ public class UserController {
 	public ResponseEntity<String> createUser(@Valid @RequestBody User user){
 		us.createUser(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);
+	}
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<String> updateUser(@PathVariable("id")int id, @Valid @RequestBody User user){
+		us.updateUser(id, user);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
 	}
 }

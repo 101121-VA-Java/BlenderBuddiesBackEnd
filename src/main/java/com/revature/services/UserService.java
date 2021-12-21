@@ -40,5 +40,15 @@ public class UserService {
 		return ur.findUsersByRole(role);
 
 	}
-
+	
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void updateUser(int id, User u) {
+		User temp = ur.getById(id);
+		temp.setFirstName(u.getFirstName());
+		temp.setLastName(u.getLastName());
+		temp.setEmail(u.getEmail());
+		temp.setUsername(u.getUsername());
+		temp.setPassword(u.getPassword());
+		ur.save(temp);
+	}
 }

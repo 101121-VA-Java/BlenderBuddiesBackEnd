@@ -40,6 +40,11 @@ public class User {
 	public User() {
 		super();
 	}
+	
+	public User(int userId) {
+		super();
+		this.userId = userId;
+	}
 
 	public int getUserId() {
 		return userId;

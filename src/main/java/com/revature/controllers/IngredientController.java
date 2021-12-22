@@ -41,9 +41,10 @@ public class IngredientController {
 			test = is.getIngredientByName(name);
 			if (test.isEmpty()) {
 				test = fs.getFruitByName(name);
-				//createIngredient(test.get(0));
+				test.get(0).setId(0);
+				createIngredient(test.get(0));
 			}
-			return test;
+			return is.getIngredientByName(name);
 		}
 		List<Ingredient> one = is.getAllIngredients();
 		List<Ingredient> two = fs.getAllFruits();

@@ -45,7 +45,5 @@ public class Ingredient {
 		this.id = id;
 	}
 
-	
-	
-	
+
 }

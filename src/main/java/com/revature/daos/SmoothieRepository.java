@@ -12,6 +12,7 @@ import com.revature.models.User;
 @Repository
 public interface SmoothieRepository extends JpaRepository<Smoothie, Integer>{
 
-	List<Smoothie> findSmoothiesByTypeAndUser(RoleEnum type, User user);
+	List<Smoothie> findSmoothiesByType(RoleEnum type);
+	List<Smoothie> findSmoothiesByUser(User u);
 	List<Smoothie> findSmoothiesByNameIgnoreCase(String name);
 }

@@ -17,26 +17,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Smoothie;
-import com.revature.services.IngredientService;
 import com.revature.services.SmoothieService;
 
 @RestController
 @RequestMapping("/smoothies")
 @CrossOrigin("*")
 public class SmoothieController {
-	private IngredientService is;
+
 	private SmoothieService ss;
 	
 	@Autowired
-	public SmoothieController(IngredientService is, SmoothieService ss) {
-		this.is = is;
+	public SmoothieController(SmoothieService ss) {
 		this.ss = ss;
 	}
 	
 	@GetMapping
-	public List<Smoothie> getAllSmoothies(@RequestParam(name="name", required = false)String name ){
+	public List<Smoothie> getAllSmoothies(@RequestParam(name="name", required = false)String name, @RequestParam(name="id", required = false)Integer id){
 		if(name != null) {
 			return ss.getSmoothieByName(name);
+		}
+		if(id != null) {
+			return ss.getSmoothieByTypeAndUser(id);
 		}
 		return ss.getAllSmoothies();
 	}

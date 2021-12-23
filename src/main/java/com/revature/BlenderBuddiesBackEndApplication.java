@@ -3,10 +3,7 @@ package com.revature;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
 
-import com.revature.models.Ingredient;
-//import com.revature.models.Spoonacular;
 
 
 import springfox.documentation.builders.PathSelectors;
@@ -19,22 +16,6 @@ public class BlenderBuddiesBackEndApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlenderBuddiesBackEndApplication.class, args);
-//		String url = "https://www.fruityvice.com/api/fruit/";
-//		RestTemplate rt = new RestTemplate();
-//		Ingredient f = null;
-//		try {
-//		f = rt.getForObject(url + "milk", Ingredient.class);
-//		}catch(Exception e) {
-//			f = rt.getForObject(url + "kiwi", Ingredient.class);
-//		}
-//		System.out.println(f);
-		
-		
-		
-		
-//		String url1 ="https://api.spoonacular.com/food/ingredients/9003/information?amount=1&apiKey=e16c840ba6bc41799d1631c8121b5a4f";
-//		Spoonacular s = rt.getForObject(url1, Spoonacular.class);
-//		System.out.println(s);
 	}
 
 	@Bean

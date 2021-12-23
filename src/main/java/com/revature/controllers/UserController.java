@@ -23,7 +23,6 @@ import com.revature.models.User;
 import com.revature.services.UserService;
 
 @RestController
-//@Controller
 @RequestMapping("/users")
 @CrossOrigin("*")
 public class UserController {
@@ -37,7 +36,6 @@ public class UserController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-//	@ResponseBody
 	public List<User> getAllUsers(@RequestParam(name="role", required = false)RoleEnum role){
 		// if a query param of name "role" is passed in, returns users of this role
 		if(role != null) {
@@ -47,12 +45,11 @@ public class UserController {
 	}	
 	
 	@GetMapping("/{id}")
-//	@ResponseBody
 	public ResponseEntity<User> getUserById(@PathVariable("id")int id) {
 		return new ResponseEntity<>(us.getUserById(id), HttpStatus.OK);
 	}
 	
-	@PostMapping // @RequestMapping(method=RequestMethod.POST)
+	@PostMapping 
 	public ResponseEntity<String> createUser(@Valid @RequestBody User user){
 		us.createUser(user);
 		return new ResponseEntity<>(HttpStatus.CREATED);

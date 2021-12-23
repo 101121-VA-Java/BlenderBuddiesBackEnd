@@ -11,8 +11,6 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Length;
 
-
-//@Component
 @Entity
 @Table(name="users")
 public class User {

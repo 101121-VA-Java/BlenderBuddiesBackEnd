@@ -30,9 +30,6 @@ public class AuthService {
 	}
 
 	public String generateToken(SimpleUser sUser) {
-		/*
-		 * Insert logic to generate a Token here
-		 */
 		String token = sUser.getUserId() + ":" + sUser.getRole();
 
 		return token;

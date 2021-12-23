@@ -19,10 +19,9 @@ public class LoggingAspect {
 		log.error(jp.getTarget() + " was invoked " + jp.getSignature());
 	}
 	
-	// @TypeOfAdvice(PointCut)
+	
 	@After("execution(* login(..))")
 	public void logLogin(JoinPoint jp) {
-		// advice, logic to be injected
 		log.info(jp.getTarget() + " was invoked " + jp.getSignature());
 	}
 }

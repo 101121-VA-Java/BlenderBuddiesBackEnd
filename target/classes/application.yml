@@ -1,7 +1,3 @@
-##This is a comment
-#server:
-#  port: 8080
-
 # prevents empty bean retrieval from causing issues
 spring:
   jackson:
@@ -18,41 +14,3 @@ management:
       exposure:
         include: "*"
 
-
-
-#Don't worry about this stuff To be deleted later
-#spring:
-#  datasource:
-#    url: ${DB_URL} #can hardcode credentials, but better practice to use environment variables to not expose creds
-#    username: ${DB_USER}
-#    password: ${DB_PASS}
-#  jpa:
-#    show-sql: true
-#    database-platform: org.hibernate.dialect.PostgreSQLDialect
-#    hibernate:
-#      ddl-auto: create
-
-#  datasource: 
-#    url: jdbc:h2:mem:mydb
-#    username: user
-#    password: pass
-#  jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    defer-datasource-initialization: true
-#    hibernate:
-#      ddl-auto: create
-#  h2:
-#    console:
-#      enabled: true
-
-
-#  datasource:
-#    url: jdbc:postgresql://database-1.caldtkttxzjv.us-east-2.rds.amazonaws.com:5432/postgres #can hardcode credentials, but better practice to use environment variables to not expose creds
-#    username: postgres
-#    password: elon2019
-#    driver-className: org.postgresql.Driver
-#  jpa:
-#    show-sql: true
-#    database-platform: org.hibernate.dialect.PostgreSQLDialect
-#    hibernate:
-#      ddl-auto: create

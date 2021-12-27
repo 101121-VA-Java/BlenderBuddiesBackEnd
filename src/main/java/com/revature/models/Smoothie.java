@@ -29,6 +29,7 @@ public class Smoothie {
 	private int smoothId;
 	@Column(nullable=false)
 	private String name;
+	@Column(length = 1500)
 	private String descrip;
 	private String url;
 	@Enumerated(EnumType.STRING)
